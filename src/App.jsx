@@ -3,6 +3,7 @@ import { AuthProvider, useAuth } from './context/AuthContext'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import EventsPage from './pages/EventsPage'
+import SeatMapPage from './pages/SeatMapPage'
 
 function ProtectedRoute({ children }) {
   const { user } = useAuth()
@@ -19,6 +20,11 @@ function App() {
           <Route path="/" element={
             <ProtectedRoute>
               <EventsPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/events/:eventId" element={
+            <ProtectedRoute>
+              <SeatMapPage />
             </ProtectedRoute>
           } />
         </Routes>
